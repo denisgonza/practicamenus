@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MENÚS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+    </head>
+    <body>
+        <!---------------------------Menú Horizontal--------------------------->
+        <div id="horizontal">
+            <header>
+                <div class="menu_bar">
+                    <a href="#" class="bt-menu"><div class="container" onclick="myFunction(this)">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                        </div></a>
+                </div>
+                <nav id="desplegar">
+                    <ul>
+                        <li><a href="#"><span></span>Inicio</a></li>
+                        <li class="submenu">
+                            <a href="#">Destacados</a>
+                            <ul class="children">
+                                <li><a href="#">Nacionales</a></li>
+                                <li><a href="#">Internacionales</a></li>
+                                <li><a href="#">El tiempo</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><span></span> Deportes<span ></span></a>
+                            <ul class="children">
+                                <li><a href="#">Copa Libertadores</a></li>
+                                <li><a href="#">Champions League</a></li>
+                                <li><a href="#">Torneo Apertura</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><img src="icons/ajustes.png" alt=""/> &nbsp; Configuración</a>
+                            <ul class="children">
+                                <li><a href="#" id="hide">Menú Vertical<span></span></a></li>
+                                <li><a href="#" id="hide1">Vertical Colapsado<span></span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        <!------------------------------------------------------------------->
+
+        <!---------------------------Menú Vertical--------------------------->
+        <div id="vertical">    
+            <ul class="vertical">
+                <li><a href="#">Inicio</a>
+                </li>
+                <li><a href="#"><img src="icons/noticias.png" alt=""/>&nbsp;Destacados &nbsp;</a>
+                    <ul>
+                        <li><a>Internacionales</a></li>
+                        <li><a>Nacionales</a></li>
+                        <li><a>El tiempo</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="icons/futbol.png" alt=""/>&nbsp;Deportes &nbsp;</a>
+                    <ul>
+                        <li><a >Copa Libertadores</a></li>
+                        <li><a >Champions League</a></li>
+                        <li><a >Torneo Apertura</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="icons/ajustes.png" alt=""/> &nbsp;Configuración</a>
+                    <ul>
+                        <li id="show"><a >Menú Horizontal</a></li>
+                        <li id="show1"><a>Vertical Colapsado</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-------------------------------------------------------------------->
+
+        <!---------------------------Menú Colapsado--------------------------->
+        <div id="colapsado">    
+            <ul class="colapsado">
+                <li><a href="#" style="font-size: 2vw;">Inicio</a>
+                </li>
+                <li><a href="#"><img src="icons/noticias2.png" style="width: 25px;" alt=""/></a>
+                    <ul>
+                        <li><a>Internacionales</a></li>
+                        <li><a>Nacionales</a></li>
+                        <li><a>El Tiempo</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="icons/futbol.png" style="width: 20px;" alt=""/></a>
+                    <ul>
+                        <li><a>Copa Libertadores</a></li>
+                        <li><a>Champions League</a></li>
+                        <li><a>Torneo Apertura</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><img src="icons/ajustes.png" style="width: 25px;" alt=""/></a>
+                    <ul>
+                        <li id="horizontal1"><a>Menu Horizontal</a></li>
+                        <li id="vertical1"><a>Menu Vertical</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <!---------------------------------------------->
+        <div id="contenido">
+            <h2>Menús adaptables</h2>
+            <p>Menú horizontal hecho con CSS y JavaScript</p>
+        </div>
+
+        <!--Funcion del menú sidenav-->
+        <script>
+            //codigo para esconder el menu vertical inicialmente!
+            $("#vertical").css("display", "none");
+            $("#colapsado").css("display", "none");
+
+
+
+            //codigo para realizar las transiciones del responsive!!
+
+            //despliegue comienza en 1 (esta cerrrado)
+            $(document).ready(main);
+            var despliegue = 1;
+            function main() {
+                $('.menu_bar').click(function () {
+                    if (despliegue === 1) {
+                        $('nav').animate({
+                            left: '0',
+                            top: '69'
+                        });
+                        despliegue = 0;
+                    } else {
+                        despliegue = 1;
+                        $('nav').animate({
+                            left: '-100%'
+                        });
+                    }
+                });
+                $('.submenu').click(function () {
+                    $(this).children('.children').slideToggle();
+                });
+            }
+            //codigo para esconder el menu vertical y horizontal respectivamente!
+            $("#hide").click(function () {
+
+
+
+                $("#horizontal").hide();
+                $("#vertical").show();
+                $("#colapsado").hide();
+                $("#contenido").css("margin-left", "26%");
+
+
+            });
+            //colapsado activado
+            $("#hide1").click(function () {
+                $("#horizontal").hide();
+                $("#vertical").hide();
+                $("#colapsado").show();
+                $("#contenido").css("margin-left", "12%");
+
+
+            });
+            //HORIZONTAL
+            $("#show").click(function () {
+                $("#vertical").hide();
+                $("#horizontal").show();
+                $("#contenido").css("margin", "0");
+
+
+            });
+            //aparecer el vertical colpasado en el vertical normal
+            $("#show1").click(function () {
+                $("#vertical").hide();
+                $("#horizontal").hide();
+                $("#colapsado").show();
+                $("#contenido").css("margin-left", "12%");
+
+
+            });
+            $("#horizontal1").click(function () {
+                $("#vertical").hide();
+                $("#colapsado").hide();
+                $("#horizontal").show();
+                $("#contenido").css("margin", "0");
+
+
+            });
+            $("#vertical1").click(function () {
+
+                $("#colapsado").hide();
+                $("#vertical").show();
+                $("#horizontal").hide();
+                $("#contenido").css("margin-left", "26%");
+
+            });
+
+            //Función para el icono de menú
+            function myFunction(x) {
+                x.classList.toggle("change");
+            }
+        </script>
+    </body>
+</html>

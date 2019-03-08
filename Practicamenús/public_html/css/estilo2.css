@@ -1,0 +1,239 @@
+
+/*Estilo para el body*/
+body {
+    margin: 0;
+    background: white;
+    font-family: Algerian;
+}
+
+h3 {
+    color: white;
+    font-size: 25px;
+    padding: 8px 8px 8px 30px;
+}
+
+/*-------------------------Menú Vertical-------------------------*/
+
+/*Estilo CSS para el menú Vertical*/
+.verticalnav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: #CE0E0E;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+/*Estilo CSS para el menú*/
+.verticalnav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+/*Estilo cuando el cursor está encima*/
+.verticalnav a:hover {
+    color: black;
+    background: linear-gradient(to bottom right, #E6344A, #FF0020);
+}
+.verticalnav a[class=closebtn]:hover{
+    color: white;
+    background: none;
+}
+
+/*Estilo CSS para el boton de 'Cierre' o 'Cerrar'*/
+.verticalnav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size:  36px;
+    margin-left: 40px;
+}
+
+
+/* Reajuste del tamaño del padding-top y la fuente desde 450px o menor para el menu vertical*/
+@media screen and (max-height: 450px) {
+    .verticalnav {padding-top: 15px;}
+    .verticalnav a {font-size: 18px;}
+}
+/*-------------------------------FIN-------------------------------*/
+
+/*-------------------------Menu Horizontal-------------------------*/
+
+/*Estilo CSS para definir el tiempo de transición para activar este menú*/
+#horizontal {
+    transition: margin-left .5s;
+    padding: 0 4px;;
+}
+
+/*Estilo CSS para el color de fondo del menú horizontal*/
+.topnav {
+    overflow: hidden;
+    background: #CE0E0E;
+
+}
+
+/*Estilos de los links del menu horizontal*/
+.topnav a {
+    float: left;
+    display: block;
+    color: white;
+    font-size: 20px;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+}
+/*Estilo cuando el cursor se ubica encima del texto*/
+.topnav a:hover {
+    /*background: #F60000;*/
+    background: linear-gradient(to bottom right, #E6344A, #FF0020);
+}
+.topnav .icon {
+    display: none;
+}
+
+/*Estilo del submenú desplegable*/
+
+.dropdown {
+    overflow: hidden;
+    float: right;
+    margin: inherit;
+    padding: inherit;
+}
+
+/*Estilos para el botón*/
+.dropdown .dropbtn {
+    font-size: 20px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 10px 16px;
+    margin: 0;
+    background-color: inherit;
+}
+
+/*Estilos del contenido*/
+.content {
+    display: none;
+    position: absolute;
+    min-width: 6.1500em;
+    z-index: 1;
+    background-color: #D8D8D8;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+/*Estilos de los links del contenido*/
+.content a {
+    float: none;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/*Estilo CSS cuando el cursor se encuentra encima del dropdown*/
+.dropdown:hover .dropbtn {
+    background: #CE0E0E;
+    color: white;
+}
+
+/*Estilo CSS cuando el cursor se encuentra encima del contenido*/
+.content a:hover {
+    background: linear-gradient(to bottom right, #E6344A, #FF0020);
+    /*background: #FF0707;*/
+    color: black;
+}
+
+/*Despliegue de submenu*/
+.dropdown:hover .content {
+    display: block;
+}
+
+/*El menu horizontal no se despliega a excepcion del primer item y aparece un icono de barras del lado derecho*/
+@media screen and (max-width:768px){
+    .topnav a:not(:first-child), .dropdown .dropbtn {display: none}
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+/*El menu horizontal se desplegara al dar click en el icono que se encuentra
+del lado derecho de manera vertical desde 768px o menor*/
+@media screen and (max-width:768px){
+    .topnav.responsive {position: relative}
+    .topnav.responsive .icon{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a{
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+
+    .topnav.responsive .dropdown {float: none;}
+    .topnav.responsive .content {position: relative;}
+    .topnav.responsive .dropdown .dropbtn {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+}
+/*------------------------------FIN------------------------------*/
+
+/*-------------------------Menú Colapsado-------------------------*/
+
+.colapsado {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: #CE0E0E;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+/*Estilo CSS para los atributos a*/
+.colapsado a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition:  0.3s;
+}
+
+/*Estilo CSS cuando el cursor este encima de los atributos a*/
+.colapsado a:hover{
+    color: white;
+    background: linear-gradient(to bottom right, #E6344A, #FF0020);
+}
+.colapsado a[class=closebtn2]:hover{
+    color: white;
+    background: none;
+}
+.colapsado .closebtn2 {
+    position: absolute;
+    top:0;
+    right:  15px;
+    font-size:  36px;
+    margin-left: 40px;
+}
+
+/*Estilo CSS para el reajuste del tamaño del padding-top y la fuente desde 450px o menor para el menu colapsado*/
+@media screen and (max-height: 450px) {
+    .colapsado {padding-top: 15px;}
+    .colapsado {font-size: 18px;}
+}

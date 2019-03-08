@@ -1,0 +1,390 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 05/03/2019, 15:23:32 PM
+    Author     : oym-dev06
+*/
+
+h2 {
+    text-align: center;
+}
+
+p {
+    text-indent: 1.5em;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+body {
+    margin-top: 0;
+    background-size: 2vw;
+    background: snow;
+}
+
+/*-------------------------CSS DEL MENU HORIZONTAL-------------------------*/
+
+* {
+    padding:0;
+    margin:0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* color de fondo del cuerpo */
+body {background:#FEFEFE;}
+
+/* el menu principal aparece invisible al principio, y a la hora de que el tamaño de la pantalla cambie
+podra visualizarse
+*/
+
+
+.menu_bar {
+    display:none;
+}
+
+/* el menu horizontal agarra el 100% del header */
+header {
+    width: 100%;
+}
+/* Estilos para el menú horizontal */
+header nav {
+    background:#FF0707;
+    font-weight: bold;
+    font-family: Arial;
+    z-index:1000;
+    /*max-width: 1000px;*/
+    width:100%;
+
+}
+/*ESTILOS DE LAS LISTAS: SIN ESTILOS */
+
+header nav ul {
+    list-style:none;
+}
+/* LA POSICION DE LOS MENUS PRINCIPALES ESTA RELATIVA
+
+A SU POSICION PRINCIPAL Y APARECERA EN LINEA */
+header nav ul li {
+    display:inline-block;
+    position: relative;
+}
+/* COLOR DE FONDO DEL MENÚ AL UBICAR EL CURSOS ENCIMA DEL MISMO*/
+header nav ul li:hover {
+    /*background-color:#E6344A;*/
+    background: linear-gradient(to bottom right, #E6344A, #FF0020);
+}
+/* ESILOS DE LOS TEXTOS DEL MENÚ PRINCIPAL*/
+header nav ul li a {
+    color:#fff;
+    display:block;
+    text-decoration:none;
+    padding: 20px;
+}
+
+/*Estilo CSS cuando el cursor este encima del texto*/
+header nav ul li a:hover {
+    color: black;
+}
+
+/* CUANDO SE POSICIONE EL CURSOS ENCIMA DEL MENU PRINCIPAL, SE DESPLEGARA LOS HIJOS EN CASO DE 
+QUE ESTE CONTENGA SUBMENUS EN FORMA DE BLOQUE
+*/
+header nav ul li:hover .children {
+    display:block;
+}
+/* AL DESPLEGARSE TENDRA LAS SIGUIENTES CARACTERISTICAS */
+header nav ul li .children {
+    display: none;
+    background:#D8D8D8;
+    position: absolute;
+    width: 190%;
+    z-index:1000;
+}
+
+header nav ul li .children li {
+    display:block;
+    overflow: hidden;
+
+}
+
+header nav ul li .children li a {
+    display: block;
+}
+
+header nav ul li .children li a span {
+    float: right;
+    position: relative;
+    top:3px;
+    margin-right:0;
+    margin-left:10px;
+}
+
+header nav ul li .caret {
+    position: relative;
+    top:3px;
+    margin-left:10px;
+    margin-right:0px;
+}
+/*UTILIZAREMOS MEDIA QUERY, PARA CUANDO LA PANTALLA SEA MÁS PEQUEÑA, CAMBIARA LAS MEDIDAS DEL MENU*/
+@media screen and (max-width: 800px) {
+    /*MENU VERTICAL */
+    body {
+        padding-top:80px;
+    }
+    h1{display: none
+    }
+    #contenido {
+        margin-top: 0px;
+    }
+    /*MENU VERTICAL*/
+    ul.vertical {
+        padding: 0;
+        list-style: none;
+        width: 25%;
+        font-size: 3vw; 
+    }
+    .menu_bar {
+        display:block;
+        width:100%;
+        position: fixed;
+        top:0;
+        background:#FF0020;
+    }
+    .menu_bar .bt-menu {
+        display: block;
+        padding: 20px;
+        color: #fff;
+        font-size: 25px;
+        font-weight: bold;
+    }
+    /* Contenido del menu despegable*/  
+    header nav {
+        display: block;
+        width: 40%;
+        height: 100%;
+        position: fixed;
+        right:100%;
+        margin:0px;
+    }
+    /* El menu principal */
+    header nav ul li {
+        display: block;   
+    }
+    /* Contenido de los submenus */
+    header nav ul li a {
+        display: block;
+    }
+    /* El contenido de los submenus aparecen ocultos */
+    header nav ul li:hover .children {
+        display: none;
+    }
+    header nav ul li .children {
+        width: 100%;
+        position: relative;
+    }
+    /* El margen de las letras que estan dentro de los submenus */
+    header nav ul li .children li a {
+        margin-left:0px;
+    }
+
+}
+/*------------------------------FIN------------------------------*/
+
+/*-------------------------CSS para el menú vertical-------------------------*/
+/* Estilo CSS para el menu vertical, el tamaño de letra, su tamaño al iniciar*/
+ul.vertical {
+    padding: 0px;;
+    list-style: none;
+    width: 25%;
+    top: 0;
+    font-size: 18px;
+    position: absolute;
+    height: 100%;
+    background: tomato;
+}
+/* Este estilo hará que no aparezca ningun tipo de viñeta en las listas ul(listas desordenadas)*/
+ul.vertical li {
+    list-style: none;
+
+}
+/* es el estilo de los submenu en si, para ponerle color de fondo y de letra, y que no tenga ningun deocrado*/
+ul.vertical li a {
+    display: block;
+    padding: 10px 10px 10px 20px;
+    background: tomato;
+    color: #eee;
+    text-decoration: none;
+}
+/* para que los submenus no tengan ningun tipo de viñeta, ademas de una 
+
+trasicion de 3 segundos de despliegue */
+ul.vertical li ul {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+/* color de las letras y del fondo de los submenus tambien el tipo de tamaño */
+ul.vertical li li a {
+    padding: 10px 10px 10px 20px;
+    background: #D8D8D8;
+    color: white;
+    font-size: 16px;
+    border: 0;
+    cursor: default;
+
+}
+
+ul.vertical li li a:hover {
+    color: black;
+}
+
+/* cuando el usuario ponga el click encima del menu principal, se desplegara las listas
+de submenues con 150px*/
+ul.vertical li:hover ul {
+    max-height: 150px;
+
+}
+/*cuando se ponga el mause por el menu, el color de fondo se pondra color beige y las letras azules */
+ul.vertical li a:hover {
+    background: linear-gradient(to bottom right, #E6344A, #FF0020);
+    color: black;
+}
+
+/*Vertical*/
+@media screen and (max-width: 750px) {
+    ul.vertical {
+        font-size: 3.1vh;
+        min-width: 40%;
+    }
+    
+    #contenido {
+        margin-top: 0px;
+        font-size: 1.6vh;
+    }
+    
+}
+
+/*------------------------FIN-------------------------*/
+
+/*-------------------------VERTICAL COLAPSADOS-------------------------*/
+
+/* el siguiente codigo es para el menu vertical en si, el tamaño de letra, su tamaño al iniciar*/
+ul.colapsado {
+    padding: 0px;
+    list-style: none;
+    width: 12%;
+    font-size: 18px;
+    top: 0;
+    position: absolute;
+    height: 100%;
+    background: red;
+
+}
+/* Estilo css para que no aparezca ningun tipo de viñeta en las listas ul(listas desordenadas)*/
+ul.colapsado li {
+    list-style: none;
+
+}
+/* es el estilo de los submenu en si, para ponerle color de fondo y de letra, y que no tenga ningun decorado*/
+ul.colapsado li a {
+    display: block;
+    padding: 10px 10px 10px 20px;
+    background: red;
+    color: #eee;
+    text-decoration: none;
+}
+/*estilo css para que los sub menus no tengan ningun tipo de viñeta, ademas de una 
+
+trasicion de 3 segundos de despliegue */
+ul.colapsado li ul {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+
+}
+/* color de las letras y del fondo de los submenus tambien el tipo de tamaño */
+ul.colapsado li li a {
+    padding: 10px 10px 10px 20px;
+    background: #D8D8D8;
+    color: black;
+    font-size: 1.2vw;
+    border: 0;
+    cursor: default;
+
+}
+/* cuando el usuario ponga el click encima del menu principal, se desplegara las listas
+de submenues con 150px*/
+ul.colapsado li:hover ul {
+    max-height: 150px;
+    color: white;
+
+}
+/*Cuando se ponga el mause por el menu, el color de fondo se pondra color beige y las letras azules */
+ul.colapsado li a:hover {
+    /*background: #D8D8D8;*/
+    background: linear-gradient(to bottom right, #E6344A, #FF0020);
+    /*color: black;*/
+}
+/*Cuando cambiamos el tamaño de la ventana, el menú colapsado se hace más pequeño*/
+
+@media screen and (max-width: 750px) {
+
+    ul.colapsado {
+        padding: 0px;
+        list-style: none;
+        width: 15%;
+        font-size: 18px;
+        position: absolute;
+        height: 100%;
+        background: tomato;    
+    }
+    
+}
+/*Horizontal*/
+@media screen and (max-width: 750px) {
+    header nav {
+        display: block;
+        width: 90%;
+        text-align: left;
+    }
+}
+
+
+/*Estilo CSS para el icono del menú en el menú horizontal cuando la pantalla es pequeña*/
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+/*-------------------------------------*/
+
+/*@media screen and (max-width: 750px) {
+    body {
+        text-align: center;
+        font-size: 5vw;
+    }
+}*/
